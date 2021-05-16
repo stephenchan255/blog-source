@@ -1,0 +1,116 @@
+.post-body {
+  color: black;
+  font-size: 0.875em;
+  line-height: 22px;
+
+	// headers
+	h1 {
+		padding-bottom: 3px;
+	}
+
+	h2, h3, h4, h5, h6 {
+		border-bottom: none;
+		margin: 0 !important;
+		margin-bottom: 5px !important;
+	}
+
+	h1+h2, h2+h3 {
+		padding-top: 0;
+	}
+
+	h3 {
+		font-size: 1.15em;
+	}
+
+  // list
+  ul {
+		margin-top: 0;
+    padding-left: 20px;
+    li {
+      text-align: left;
+      margin: 0.3em 0;
+    }
+  }
+
+  // `xxx`
+  code {
+    background: #f5f2f0;
+		font-size: 1em;
+    color: black;
+  }
+
+  // link
+  a:not(.btn) {
+    color: #0059b2;
+    border-bottom: none;
+  }
+
+  a:hover:not(.btn) {
+    text-decoration: underline;
+  }
+
+  // "read more" btn (in home page)
+ .btn {
+    font-size: 1.125em;
+  }
+
+  // p & list
+  p {
+    margin: 0 0 12px;
+    &+ul, &+ol {
+      margin-top: -7px;
+    }
+  }
+  ul+p, ol+p {
+    margin-top: 20px;
+  }
+
+  // table
+
+	figure>.table-container, figure .code pre {
+		background: #f5f2f0;
+	}
+
+  table {
+    font-size: 0.875rem;
+    // margin-bottom: 0;
+    th, td {
+      padding: 5px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      text-align: left;
+      border-bottom: 3px solid #ccc;
+    }
+  }
+  .table-container+ul {
+    margin-top: -20px;
+  } 
+   
+  // code piece
+  figure {
+    font-size: 1rem;
+    td {
+      padding: 0;
+      border: none;
+    }
+  }
+
+  li figure { // see JS built-in data structure/map & set
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  // nav-tab head (in docs/)
+  .nav-tabs li {
+    margin: 0;
+  }
+
+  // .highlight-container+ul, .highlight-container+ol {
+  //   margin-top: -10px;
+  // }
+  // li>.highlight-container {
+  //   margin-top: 10px;
+  // }
+}
