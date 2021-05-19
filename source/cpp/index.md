@@ -6,16 +6,16 @@ categories: [IT, Programming, cpp]
 ---
 
 Read progress: finish read 1.6, 1.7&Exercise skipped 2.9 Exercise skipped
-org next: ch 3 Generic Programming
+org next: ch 3.2 Iterator
 
-# Head file (& Namespace) & Program text file 
+# Header file (& Namespace) & Program text file 
 ref: p11, p54 param default value, 57 inline func, 63 set up a header file
 
 **header file**: declaration of obj/func (can be mtp dec [p63]) + def of an inline func
 - included in each program text file that wish to use the func/obj
 - Set up a Header File [2.9]
 	- without `extern`, obj dec in header file interpreted as the def 
-	- `const` obj no need `extern`: only visible inside the file it defined [why?]
+	- `const` obj no need `extern`: only visible inside the file it defined
 	- header file: standard vs user-provided (`.h` suffix & `" "` | `< >`)
 **program text file** definition of a func (can only be one def [p63])
 - func def need to accsss obj/func in other files? --- include header files 
@@ -33,7 +33,7 @@ cout << "\nHello, " << user_name;
 
 example: declaration and definition of `display()` 
 
-# Arrays & Vectors
+# Arrays, Vectors & List
 ```c++
 int elem_seq[seq_size] = { ... };
 int elem_seq[] = { ... }; // let the compiler calculate the array size
@@ -41,9 +41,13 @@ int elem_seq[] = { ... }; // let the compiler calculate the array size
 vector<int> elem_seq(seq_size);
 elem_seq[0] = 1 ; // not support an explicit initialization list
 
+vector<string> svec; // an empty vector of string elem
+
 // alternative is to init...
 vector<int> elem_seq(elem_vals, elem_vals+seq_size); // --- 3.1
 elem_seq.size();
+
+list<int> ilist(ia, ia+asize); // --- 3.2
 ```
 
 # Pointers
@@ -57,19 +61,14 @@ if (pv && ! pv->empty() && ((*pv)[1] == 1))
 
 # Function
 
-Write a Func
-- terminate the program: `exit(-1);` & `#include <cstdlib>`
-- A function can return only one value --- second parameter of type ref
-- final implementation of `fibon_elem()`...
-
 Invoking a Func
-- bubble sort...
 - **program stack**: (with memory to) hold the value of each function parameter & local objects
 	- function completes --- this area of memory is discarded (popped from the program stack)
 - pass by value -> pass by reference
 
 ## Pass by Ref
 ```c++
+// ref
 int ival = 1024; // an object of type int
 int *pi = &ival; // a pointer to an object of type int
 int &rval = ival; // a reference to an object of type int 
@@ -78,14 +77,18 @@ int jval = 4096;
 rval = ival; // 此处应该为 rval = jval: 将ival的值从1024修改为4096
 pi = &rval; // 4096
 
+// pass by ptr | ref
 void display(const vector<int> *vec) // a pointer may or may not actually address an obj
 void display(const vector<int> &vec) // A reference always refers to some obj
 ```
+
+- A function can return only one value --- second parameter of type ref
+	- example: final implementation of `fibon_elem()`...
 - reference cannot be reassigned to refer to another obj...manipulation of a reference acts on the object
 - declare a parameter as a reference...modify directly the actual object being passed...eliminate copying a large obj
 - recommend not passing built-in types by ref
 
-## Default Parameter Values
+## Default Param Values
 ```c++
 void bubble_sort(vector<int> &vec, ofstream *ofil = 0) // place the default value in header file (greater visibility)
 void display(const vector<int> &vec, ostream &os = cout) // a ref cannot be set to 0...always refer to some obj
@@ -138,38 +141,34 @@ void display_message(const string &msg, const vector<elemType> &vec)
 ```
 
 # Generic Programming
-- Standard Template Library (STL), sequential | associative container, generic algorithms ...
+- Standard Template Library (STL), (seq | assoc) container classes, generic algos ...
 
-## The Arithmetic of Pointers
-- array: passed...as a pointer to its first elem, can still indexing as bf
+## Pointer Arithmetic
 ```c++
+// array: (passed) as a pointer to its first elem, can still indexing as bf
 int min(int array[24]) { ... } // == (int *array)
 array[2] == *(array + 2) // // subscripting is carried out by...
 ```
-- `find()` example [p66 ~]
--  Pointer arithmetic presumes that the elements are contiguous
-- arr/vector: elements in a contiguous area of memory
-- `vector<string> svec;`: an empty vector of string elem
-- [q] p69 `first != last;` === `first < last` ?
+- Pointer arithmetic presumes that the elements are contiguous (in a contiguous area of memory, e.g. arr/vector)
+- `find()` example [p66~70]
 
 ## Pointers -> Iterators
-- Each container class provides a `begin()` op...and an `end()` op
-- For the list class iterator, for example, the associated increment function...For the vector class iterator, the increment function...
-
 ```c++
 vector<string> svec;
-vector<string>::iterator iter = svec.begin()/.end();  // double colon [`::`]: nested type
-*iter; // deref
-iter->size()
+vector<string>::iterator iter = svec.begin()/.end();  
+```
+- Each container class provides a `begin()` op & an `end()` op, e.g. vector, list
+- if vec empty, `svec.begin()/.end()` are equal
+- double colon [`::`]: nested type
+- iterator sam syntax as pointer, e.g. deref by `*iter`, `iter->size()`
 
-vector<elemType>::const_iterator iter = vec.begin();
-vector<elemType>::const_iterator end_it = vec.end(); 
-// if vec is empty, iter and end_it are equal (both 0?)
+const vector & const iterator
+```c++
+const vector<string> cs_vec; 
+vector<string>::const_iterator iter = cs_vec.begin()/.end();
 ```
 
-- `vector<string>::const_iterator`...read the vector elements but not write to them
-- reimplementation of `display()`, `find()`
-
+reimplementation of `display()`, `find()` ...
 
 # Other note
 ## Basics
@@ -190,6 +189,8 @@ Conditional & Loop Stmt
 - `for` loop [p29]
 
 Function
+- bubble sort
+- terminate the program: `exit(-1);` & `#include <cstdlib>`
 - Function Overloading [2.6]
 
 ## Engineering principle
