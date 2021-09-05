@@ -119,6 +119,7 @@ theme_config:
   ## ref: https://theme-next.js.org/docs/theme-settings/#Configuring-Menu-Items
   menu: 
     home: / || fa fa-home
+    Compoter Science: /computer_science/ || fa fa-desktop
     Programming: /programming/ || fa fa-code
     Java: /java/ || fab fa-java
     JavaScript: categories/IT/Programming/JavaScript/ || fab fa-js
