@@ -140,8 +140,18 @@ template <typename elemType, ...>
 void display_message(const string &msg, const vector<elemType> &vec) 
 ```
 
-# Generic Programming
+# Containers
 - Standard Template Library (STL), (seq | assoc) container classes, generic algos ...
+- container ops... [3.3]
+	- `begin()/.end()` (e.g. vector, list) [p71]
+	- `size()`, `empty()`, `clear()`
+- Sequential Containers: `vector`, `list`, `deque` [3.4]
+	- `push_/pop_back()`, `push_/pop_front()` --- `insert()/erase()`
+	- `front/back()`
+	- 5 ways to define a sequential container obj...
+- Generic Algos & `#include <algorithm>`... [3.5]
+	- Four possible generic search algorithms...
+	- `max_element()`, `copy()`, `sort()`
 
 ## Pointer Arithmetic
 ```c++
@@ -157,7 +167,6 @@ array[2] == *(array + 2) // // subscripting is carried out by...
 vector<string> svec;
 vector<string>::iterator iter = svec.begin()/.end();  
 ```
-- Each container class provides a `begin()` op & an `end()` op, e.g. vector, list
 - if vec empty, `svec.begin()/.end()` are equal
 - double colon [`::`]: nested type
 - iterator sam syntax as pointer, e.g. deref by `*iter`, `iter->size()`
@@ -205,10 +214,9 @@ Function
 	- character literal: printing & nonprinting... [p12]
 	- three floating point size types `float` `double` `long double`
 	- `double usr_score = 0.0;`, character type & escape seq, `const double pi = 3.14159;`
-- `string word;`, `word.size()` [p27]
 - template class
 - element indexing `[]` & **off-by-one** err
 - function prototype [p39]
-- ineluctable modality of the computer...
+- ineluctable modality of the computer & `#include <limits>; int max_int = numeric_limits<int>::max()`
+- forward declaration
 - randomize: `rand()` and `srand()` functions: `#include <cstdlib>`
-- `vector<int> elems;`...`elems.push_back(1);`
