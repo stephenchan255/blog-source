@@ -1,8 +1,8 @@
 ---
 title: Cpp
 date: 2020-09-04 20:23:20
-tags: [IT, Programming, cpp]
-categories: [IT, Programming, cpp]
+tags: [IT, Programming, Cpp]
+categories: [IT, Programming, Cpp]
 ---
 
 Read progress: finish read 1.6, 1.7&Exercise skipped 2.9 Exercise skipped

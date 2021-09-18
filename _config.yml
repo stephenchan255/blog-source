@@ -119,11 +119,12 @@ theme_config:
   ## ref: https://theme-next.js.org/docs/theme-settings/#Configuring-Menu-Items
   menu: 
     home: / || fa fa-home
-    Compoter Science: /computer_science/ || fa fa-desktop
+    Computer Science: /computer_science/ || fa fa-desktop
     Programming: /programming/ || fa fa-code
     Java: /java/ || fab fa-java
     JavaScript: categories/IT/Programming/JavaScript/ || fab fa-js
     Cpp: /cpp/ || fab fa-cuttlefish
+    Others: /others/ || fa fa-hashtag
     Config: /config/ || fa fa-cog
 
     ## ref: https://theme-next.js.org/docs/theme-settings/custom-pages.html
